@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== TOKENS chung ===== */
+:root {
+  --bg-grad: linear-gradient(180deg, #0D0C0C, #0D0C0C); /* mặc định */
+  --surface: rgba(255,255,255,.06);
+  --border: rgba(255,255,255,.12);
+  --text: #F5F5F5;
+  --muted: rgba(255,255,255,.7);
+  --primary: #DA251D;         /* nút chính */
+  --on-primary: #ffffff;
+  --accent: #FFCD00;          /* nhấn */
+  --on-accent: #0D0C0C;
+  --halo: rgba(255,205,0,.32);/* đổ sáng */
+}
+
+html, body, #root { height: 100%; }
+body {
+  color: var(--text);
+  background-image: var(--bg-grad);
+  background-attachment: fixed;
+  font-family: "Be Vietnam Pro", system-ui, sans-serif;
+}
+
+/* ===== 4 theme ===== */
+:root[data-theme="classic"]{
+  --bg-grad:
+    radial-gradient(1100px 600px at 10% 0%, rgba(218,37,29,.20), transparent 60%),
+    radial-gradient(900px 640px at 90% 20%, rgba(255,205,0,.10), transparent 60%),
+    linear-gradient(180deg, #1a0e0e, #120a0a);
+  --primary:#DA251D; --on-primary:#fff;
+  --accent:#FFCD00;  --on-accent:#111;
+  --surface: rgba(255,255,255,.06); --border:rgba(255,255,255,.12);
+  --halo: rgba(255,205,0,.32);
+}
+
+:root[data-theme="lotus"]{
+  --bg-grad:
+    radial-gradient(1100px 600px at 15% 10%, rgba(232,93,117,.18), transparent 60%),
+    radial-gradient(900px 640px at 85% 15%, rgba(46,125,50,.18), transparent 60%),
+    linear-gradient(180deg, #0b1210, #0a100e);
+  --primary:#2E7D32; --on-primary:#fff; /* xanh tre */
+  --accent:#E85D75;  --on-accent:#fff; /* hồng sen */
+  --surface: rgba(255,255,255,.08); --border:rgba(255,255,255,.14);
+  --halo: rgba(232,93,117,.28);
+}
+
+:root[data-theme="indigo"]{
+  --bg-grad:
+    radial-gradient(1000px 580px at 20% 10%, rgba(30,58,138,.22), transparent 65%),
+    radial-gradient(900px 600px at 80% 20%, rgba(255,214,102,.10), transparent 60%),
+    linear-gradient(180deg, #070A14, #090B12);
+  --primary:#1E3A8A; --on-primary:#fff;
+  --accent:#F6C95D;  --on-accent:#151515;
+  --surface: rgba(255,255,255,.07); --border:rgba(255,255,255,.12);
+  --halo: rgba(246,201,93,.28);
+}
+
+:root[data-theme="heritage"]{
+  --bg-grad:
+    radial-gradient(1200px 700px at 12% 8%, rgba(255,205,0,.12), transparent 60%),
+    radial-gradient(900px 600px at 84% 18%, rgba(218,37,29,.12), transparent 60%),
+    linear-gradient(180deg, #0D0C0C, #0A0A0A);
+  --primary:#B71C1C; --on-primary:#fff; /* đỏ sơn */
+  --accent:#E6C86E;  --on-accent:#111; /* vàng kim */
+  --surface: rgba(255,255,255,.05); --border:rgba(230,200,110,.16);
+  --halo: rgba(230,200,110,.28);
+}
+
+/* ===== UI components dựa trên tokens ===== */
+.glass { background: var(--surface); backdrop-filter: blur(18px);
+  border: 1px solid var(--border); border-radius: 1rem; box-shadow: 0 30px 90px var(--halo); }
+.badge { padding: .35rem .7rem; border-radius: 999px; font-size: .78rem;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  color: color-mix(in srgb, var(--accent) 85%, #fff);
+}
+.btn-primary{ padding:.8rem 1.2rem; border-radius: .9rem; font-weight: 700;
+  background: var(--primary); color: var(--on-primary);
+}
+.btn-primary:hover{ filter: brightness(1.05); box-shadow: 0 0 0 2px color-mix(in srgb,var(--primary) 40%, transparent), 0 12px 48px var(--halo); }
+.btn-accent{ padding:.8rem 1.2rem; border-radius: .9rem; font-weight: 700;
+  background: var(--accent); color: var(--on-accent);
+}
+:root[data-theme="crimson"]{
+  /* NỀN: đỏ đậm thay cho nền đen */
+  --bg-grad:
+    radial-gradient(1200px 620px at 18% 12%, rgba(255,0,0,.18), transparent 60%),
+    radial-gradient(900px 560px at 82% 20%, rgba(128,0,0,.26), transparent 60%),
+    linear-gradient(180deg, #2A0000 0%, #0F0000 100%);
+
+  /* UI: những gì trước đây là đỏ -> chuyển sang VÀNG */
+  --primary: #FFCD00;   /* vàng sao – dùng cho nút chính, line, badge… */
+  --on-primary: #1A1200;
+
+  --accent:  #FFC846;   /* vàng nhấn dịu hơn để phối */
+  --on-accent: #1a0000;
+
+  /* bề mặt kính (giữ tối để nổi trên nền đỏ) */
+  --surface: rgba(0,0,0,.46);
+  --border:  rgba(255,205,0,.16);
+
+  /* chữ & halo */
+  --text:  #FAFAFA;
+  --muted: rgba(255,255,255,.75);
+  --halo:  rgba(255,200,70,.26);
+}
