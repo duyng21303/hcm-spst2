@@ -107,3 +107,76 @@ body {
   --muted: rgba(255,255,255,.75);
   --halo:  rgba(255,200,70,.26);
 }
+/* ==== 2.1: 100dvh cho iOS (khắc phục thanh URL trượt) ==== */
+:root { --app-h: 100dvh; }       /* dùng dynamic viewport unit */
+.min-h-screen { min-height: var(--app-h) !important; }
+
+/* ==== 2.2: hỗ trợ safe-area (tai thỏ) ==== */
+.safe-px {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+.safe-pt { padding-top: max(1rem, env(safe-area-inset-top)); }
+.safe-pb { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+
+/* ==== 2.3: font scale thân thiện mobile ==== */
+h1, .text-5xl { font-size: clamp(1.6rem, 3.5vw + 1rem, 3rem); }
+h2, .text-2xl { font-size: clamp(1.2rem, 2.5vw + 0.8rem, 2rem); }
+body { line-height: 1.55; }
+
+/* ==== 2.4: tăng vùng chạm (tối thiểu 44px) ==== */
+.btn-primary, .btn-accent, .badge, button, a[role="button"] {
+  min-height: 44px; min-width: 44px;
+}
+
+/* ==== 2.5: giảm hiệu ứng nặng trên màn nhỏ ==== */
+@media (max-width: 480px) {
+  .glass { backdrop-filter: blur(14px); box-shadow: 0 18px 60px var(--halo); }
+}
+
+/* ==== 2.6: D3 svg cho cảm ứng: tắt pan/zoom mặc định ==== */
+svg.touch-canvas { touch-action: none; -webkit-tap-highlight-color: transparent; }
+/* ==== Pretty progress bar (đẹp như ảnh) ==== */
+.pretty-bar{
+  position: relative;
+  width: 100%;
+  height: 12px;                 /* .pretty-bar--sm sẽ nhỏ hơn */
+  border-radius: 9999px;
+  overflow: hidden;
+  background: rgba(255,255,255,.12);     /* track */
+  box-shadow:
+    inset 0 1px 2px rgba(0,0,0,.35),
+    0 6px 20px rgba(255,200,70,.15);     /* quầng vàng nhẹ */
+}
+.pretty-bar--sm{ height: 8px; }
+
+.pretty-bar__fill{
+  height: 100%;
+  width: var(--w, 0%);                         /* truyền width bằng style */
+  transition: width .6s cubic-bezier(.25,.8,.25,1);
+  background: linear-gradient(90deg,
+    #ef4444 0%,
+    #f97316 45%,
+    #f59e0b 65%,
+    #ffd166 100%
+  );                                           /* đỏ -> cam -> vàng */
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.15);     /* viền trong cho “mịn” */
+  position: relative;
+}
+
+/* lớp highlight mỏng ở nửa trên */
+.pretty-bar__fill::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,0));
+  mix-blend-mode: screen; opacity:.25;
+  pointer-events: none;
+}
+
+/* điểm sáng ở đầu thanh (nhỏ xíu) */
+.pretty-bar__fill::before{
+  content:""; position:absolute; top:50%; right:-10px; transform:translateY(-50%);
+  width:14px; height:14px; border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #fff8 0, #fff0 70%);
+  pointer-events: none;
+}

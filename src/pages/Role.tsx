@@ -23,7 +23,7 @@ export default function Role(){
             className="w-full accent-brand-500"
           />
           <div className="mt-2 h-3 w-full bg-white/10 rounded">
-            <div className="h-3 rounded bg-gradient-to-r from-brand-500 via-deep-500 to-accent-500"
+            <div className="h-3 rounded bg-gradient-to-r from-brand-500 via-deep-500 to-accent-500 pretty-bar__fill"
                  style={{ width: `${success}%` }}/>
           </div>
           <div className="text-xs text-white/70 mt-1">Điểm thành công (minh hoạ): {success}</div>

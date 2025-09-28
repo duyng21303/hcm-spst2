@@ -40,9 +40,10 @@ export default function Quiz(){
         <div className="text-sm text-white/80">Điểm: <span className="font-semibold">{score}</span>/<span>{QUIZ.length}</span></div>
       </div>
 
-      <div className="mt-3 h-2 w-full bg-white/10 rounded-full overflow-hidden">
-        <div className="h-2 bg-brand-500" style={{ width: `${progress}%` }} />
-      </div>
+<div className="pretty-bar mt-3">
+  <div className="pretty-bar__fill" style={{ ['--w' as any]: `${progress}%` }} />
+</div>
+
 
       <div className="mt-4 font-semibold">{q.q}</div>
 

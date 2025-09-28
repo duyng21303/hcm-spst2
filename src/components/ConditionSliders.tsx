@@ -37,14 +37,16 @@ export default function ConditionSliders(){
       ))}
       <div>
         <div className="text-sm mb-1">Rủi ro chia rẽ (càng thấp càng tốt): {risk}%</div>
-        <div className="h-3 w-full bg-white/10 rounded">
-          <motion.div
-            initial={{width: "100%"}}
-            animate={{width: `${risk}%`}}
-            transition={{type:"spring", stiffness:80}}
-            className="h-3 rounded bg-gradient-to-r from-red-500 to-yellow-400"
-          />
-        </div>
+       <div className="h-3 w-full rounded bg-[var(--track)] overflow-hidden">
+  <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: `${risk}%` }}
+    transition={{ type: "spring", stiffness: 80 }}
+    className="h-full"
+    style={{ background: "linear-gradient(90deg, #ef4444, var(--accent))" }} // đỏ -> vàng
+  />
+</div>
+
       </div>
       <p className="text-xs text-white/70">
         Gợi ý: tăng <b>hiệp thương dân chủ</b>, <b>đối thoại</b>, <b>chính sách hài hoà</b> → rủi ro giảm.

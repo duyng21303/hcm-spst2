@@ -39,8 +39,8 @@ export default function Forces() {
               <span
                 className={
                   n.role === "nen_tang"
-                    ? "badge badge-success relative group"
-                    : "badge relative group"
+                    ? "badge badge-success relative group inline-flex items-center"
+                    : "badge relative group inline-flex items-center"
                 }
               >
                 {n.role === "nen_tang" ? "Nền tảng" : "Chủ thể"}

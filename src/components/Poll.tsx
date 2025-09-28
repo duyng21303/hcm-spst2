@@ -28,7 +28,7 @@ function Bar({label, value}:{label:string; value:number}){
     <div>
       <div className="flex justify-between"><span>{label}</span><span>{value.toFixed(0)}%</span></div>
       <div className="h-2 bg-white/10 rounded">
-        <div className="h-2 rounded bg-gradient-to-r from-brand-500 via-deep-500 to-accent-500" style={{width:`${value}%`}}/>
+        <div className="h-2 rounded bg-gradient-to-r from-brand-500 via-deep-500 to-accent-500 pretty-bar__fill" style={{width:`${value}%`}}/>
       </div>
     </div>
   )

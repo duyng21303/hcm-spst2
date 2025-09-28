@@ -15,8 +15,7 @@ export default function Navbar(){
       <div className="mx-auto max-w-6xl px-4 py-3 glass">
         <div className="flex items-center gap-4">
           <Link to="/" className="flex items-center gap-2">
-            <FaFlask className="text-brand-400" />
-            <span className="font-semibold">UNITY LAB</span>
+            <span className="font-semibold text-[var(--accent)]">Đại đoàn kết</span>
           </Link>
           <nav className="flex-1 flex gap-1 text-sm">
             <NavLink to="/vai-tro" className={linkCls}>Vai trò</NavLink>
@@ -24,9 +23,7 @@ export default function Navbar(){
             <NavLink to="/dieu-kien" className={linkCls}>Điều kiện</NavLink>
             <NavLink to="/mat-tran" className={linkCls}>Mặt trận</NavLink>
             <NavLink to="/phuong-thuc" className={linkCls}>Phương thức</NavLink>
-            <NavLink to="/debate" className={linkCls}>Debate</NavLink>
             <NavLink to="/cap-nhat" className={linkCls}>Thực tiễn</NavLink>
-            <NavLink to="/ai-usage" className={linkCls}>AI Usage</NavLink>
           </nav>
          <button onClick={toggle} className="badge flex items-center gap-2 text-vn-gold">
   {mode==="presentation" ? "Trình bày" : "Khám phá"}

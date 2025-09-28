@@ -20,7 +20,7 @@ export default function HeroVN(){
       </motion.svg>
 
       <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-        <span className="text-vn-gold">ĐẠI ĐOÀN KẾT</span> – UNITY LAB
+        <span className="text-vn-gold">ĐẠI ĐOÀN KẾT</span>
       </h1>
       <p className="mt-4 text-white/80 max-w-2xl font-serif">
         “Đoàn kết, đoàn kết, đại đoàn kết. Thành công, thành công, đại thành công.”
@@ -28,7 +28,6 @@ export default function HeroVN(){
 
       <div className="mt-6 flex gap-3">
         <Link to="/vai-tro" className="btn-red">Bắt đầu thí nghiệm</Link>
-        <Link to="/debate" className="btn-gold">Vào Debate</Link>
       </div>
     </section>
   );

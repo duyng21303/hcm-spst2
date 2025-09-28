@@ -79,10 +79,15 @@ function Stat({label,v}:{label:string; v:number}){
   return (
     <div className="glass p-4">
       <div className="text-white/70">{label}</div>
-      <div className="h-2 bg-white/10 rounded mt-2">
-        <motion.div initial={{width:0}} animate={{width:`${percent}%`}}
-          className="h-2 rounded bg-gradient-to-r from-brand-500 via-deep-500 to-accent-500" />
-      </div>
+     <div className="h-2 bg-[var(--track)] rounded mt-2 overflow-hidden">
+  <motion.div
+    initial={{ width: 0 }}
+    animate={{ width: `${percent}%` }}
+    className="h-full"
+    style={{ background: "linear-gradient(90deg, var(--primary), var(--accent))" }}
+  />
+</div>
+
       <div className="text-xs text-white/60 mt-1">điểm: {v}</div>
     </div>
   );
