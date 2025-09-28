@@ -1,6 +1,18 @@
 export const PRINCIPLES = [
-  { title: "Tự nguyện – hiệp thương dân chủ", desc: "Tìm điểm đồng trong mục tiêu chung, tôn trọng khác biệt." },
-  { title: "Đoàn kết lâu dài, chân thành", desc: "Gắn bó dựa trên lợi ích chính đáng, niềm tin và tôn trọng." },
-  { title: "Tôn trọng – hợp tác – bình đẳng", desc: "Không áp đặt, phát huy trí tuệ và sức mạnh mọi lực lượng." },
-  { title: "Dưới sự lãnh đạo của Đảng", desc: "Bảo đảm định hướng, thống nhất mục tiêu độc lập – phát triển." },
+  {
+    title: "Liên minh công–nông–trí",
+    desc: "Phải được xây dựng trên nền tảng liên minh công nhân – nông dân – trí thức.",
+  },
+  {
+    title: "Dưới sự lãnh đạo của Đảng",
+    desc: "Đặt dưới sự lãnh đạo của Đảng.",
+  },
+  {
+    title: "Hiệp thương dân chủ",
+    desc: "Phải hoạt động theo nguyên tắc hiệp thương dân chủ.",
+  },
+  {
+    title: "Đoàn kết lâu dài, chân thành",
+    desc: "Đoàn kết lâu dài, chặt chẽ; thật sự, chân thành, thân ái giúp đỡ nhau cùng tiến bộ.",
+  },
 ];

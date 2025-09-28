@@ -1,22 +1,63 @@
-import { FORCE_NODES } from "../data/forces";
+import { FORCE_NODES, TOOLTIP_TEXTS } from "../data/forces";
 
-export default function Forces(){
+function BadgeWithTooltip({ label }: { label: string }) {
+  return (
+    <span className="relative group">
+      <span className="badge">{label}</span>
+      <span className="absolute z-10 hidden group-hover:block w-64 p-2 text-xs text-white bg-black/80 rounded-md -top-12 left-1/2 -translate-x-1/2">
+        {TOOLTIP_TEXTS[label]}
+      </span>
+    </span>
+  );
+}
+
+export default function Forces() {
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-bold">I.2 Lực lượng của khối đại đoàn kết</h2>
-      <p className="text-white/80">Bản đồ lực lượng – điểm tương đồng / khác biệt / lợi ích chung.</p>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {FORCE_NODES.map(n=>(
-          <div key={n.id} className="glass p-4">
-            <div className="text-lg font-semibold">{n.id}</div>
-            <div className="mt-2 grid gap-2 text-sm">
-              <div><span className="badge">Tương đồng</span> Lợi ích quốc gia, phát triển bền vững.</div>
-              <div><span className="badge">Khác biệt</span> Vị trí, nhu cầu, điều kiện sống.</div>
-              <div><span className="badge">Điểm đồng</span> Độc lập, hoà bình, phồn vinh.</div>
+      <p className="text-white/80">
+        Bản đồ lực lượng – chủ thể rộng rãi & nền tảng (liên minh công–nông–trí).
+      </p>
+
+      <div className="rounded-xl border border-white/10 p-4 text-sm glass">
+        <div className="flex flex-wrap gap-3">
+          <BadgeWithTooltip label="Chủ thể" />
+          <BadgeWithTooltip label="Nền tảng" />
+          <BadgeWithTooltip label="Hiệp thương dân chủ" />
+          <BadgeWithTooltip label="Cầu đồng tồn dị" />
+        </div>
+        <p className="mt-2 text-white/70">
+          Điểm quy tụ lợi ích chung: độc lập dân tộc, tự do & hạnh phúc của nhân dân.
+        </p>
+      </div>
+
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 items-stretch auto-rows-fr">
+        {FORCE_NODES.map((n) => (
+          <div key={n.id} className="glass p-4 h-full flex flex-col">
+            <div className="flex items-center justify-between">
+              <div className="text-lg font-semibold">{n.id}</div>
+              <span
+                className={
+                  n.role === "nen_tang"
+                    ? "badge badge-success relative group"
+                    : "badge relative group"
+                }
+              >
+                {n.role === "nen_tang" ? "Nền tảng" : "Chủ thể"}
+              </span>
+            </div>
+
+            {n.notes && (
+              <div className="mt-2 text-sm text-white/80">{n.notes}</div>
+            )}
+
+            <div className="mt-auto pt-3 flex flex-wrap gap-2 text-xs">
+              <BadgeWithTooltip label="Hiệp thương dân chủ" />
+              <BadgeWithTooltip label="Cầu đồng tồn dị" />
             </div>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
