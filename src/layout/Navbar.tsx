@@ -25,7 +25,7 @@ export default function Navbar(){
             <NavLink to="/mat-tran" className={linkCls}>Mặt trận</NavLink>
             <NavLink to="/phuong-thuc" className={linkCls}>Phương thức</NavLink>
             <NavLink to="/debate" className={linkCls}>Debate</NavLink>
-            <NavLink to="/cap-nhat" className={linkCls}>Cập nhật</NavLink>
+            <NavLink to="/cap-nhat" className={linkCls}>Thực tiễn</NavLink>
             <NavLink to="/ai-usage" className={linkCls}>AI Usage</NavLink>
           </nav>
          <button onClick={toggle} className="badge flex items-center gap-2 text-vn-gold">
